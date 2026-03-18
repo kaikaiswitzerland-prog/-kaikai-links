@@ -18,12 +18,12 @@
       --white-faint: rgba(242,240,235,0.08);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-    html { height: -webkit-fill-available; }
+    html { height: 100%; overflow: hidden; }
     body {
+      height: 100%;
+      overflow-y: scroll;
       overflow-x: hidden;
-      overflow-y: auto;
       -webkit-overflow-scrolling: touch;
-      overscroll-behavior-y: none;
       background: var(--black);
       color: var(--white);
       font-family: 'DM Sans', sans-serif;
@@ -32,8 +32,8 @@
     .atmo-bl { position: absolute; bottom: -80px; left: -100px; width: 500px; height: 500px; background: radial-gradient(ellipse, rgba(45,74,50,0.55) 0%, transparent 70%); filter: blur(60px); }
     .atmo-tr { position: absolute; top: -60px; right: -80px; width: 400px; height: 400px; background: radial-gradient(ellipse, rgba(26,46,30,0.45) 0%, transparent 70%); filter: blur(50px); }
     .leaf { position: fixed; pointer-events: none; z-index: 0; }
-    .leaf-bl { bottom: -20px; left: -40px; width: min(55vw, 280px); opacity: 0.22; transform-origin: 60% 90%; animation: leafSwayBL 8s ease-in-out infinite; }
-    .leaf-tr { top: -10px; right: -30px; width: min(45vw, 230px); opacity: 0.14; transform-origin: 40% 10%; animation: leafSwayTR 10s ease-in-out infinite; }
+    .leaf-bl { bottom: -20px; left: -40px; width: min(55vw, 280px); opacity: 0.22; transform: rotate(5deg); }
+    .leaf-tr { top: -10px; right: -30px; width: min(45vw, 230px); opacity: 0.14; transform: rotate(185deg); }
     .container { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; padding: 50px 22px 20px; }
     .header { text-align: center; margin-bottom: 44px; animation: fadeDown 0.7s ease both; }
     .logo-img {
@@ -101,19 +101,7 @@ background: linear-gradient(to bottom, transparent 60%, rgba(6,10,7,0.4) 100%);
     .card-map { flex-direction: column; gap: 0; padding: 0; }
     .card-map .map-bottom { display: flex; align-items: center; justify-content: space-between; padding: 12px 20px 16px; width: 100%; }
     .cards .card:nth-child(4) { animation: fadeUp 0.5s 0.56s ease both; }
-    .footer { margin-top: 28px; margin-bottom: 0; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #ffffff; opacity: 1; text-align: center; }
-    @keyframes leafSwayBL {
-      0%   { transform: rotate(5deg) scale(1); }
-      30%  { transform: rotate(9deg) scale(1.03) translateX(6px); }
-      60%  { transform: rotate(3deg) scale(0.98) translateY(-4px); }
-      100% { transform: rotate(5deg) scale(1); }
-    }
-    @keyframes leafSwayTR {
-      0%   { transform: rotate(185deg) scale(1); }
-      40%  { transform: rotate(180deg) scale(1.04) translateX(-5px); }
-      70%  { transform: rotate(188deg) scale(0.97) translateY(5px); }
-      100% { transform: rotate(185deg) scale(1); }
-    }
+    .footer { margin-top: 8px; font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase; color: #ffffff; opacity: 1; text-align: center; }
     @keyframes fadeDown { from { opacity:0; transform:translateY(-14px); } to { opacity:1; transform:translateY(0); } }
     @keyframes fadeUp { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:translateY(0); } }
     .cards .card:nth-child(1) { animation: fadeUp 0.5s 0.18s ease both; }
@@ -132,8 +120,6 @@ background: linear-gradient(to bottom, transparent 60%, rgba(6,10,7,0.4) 100%);
   <svg class="leaf leaf-tr" viewBox="0 0 260 380" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M10 370C50 280 100 190 180 130C230 88 255 55 260 10C235 75 205 125 165 162C200 105 235 48 258 8C220 78 188 138 145 175C105 208 55 275 10 370Z" fill="#4a8040"/>
     <path d="M0 378C42 272 98 178 190 118C240 82 260 50 262 5C232 72 200 128 158 168C120 204 64 278 0 378Z" fill="#2d5c28" opacity="0.8"/>
-    <path d="M30 365C70 285 118 205 185 152C225 118 252 80 258 28C226 96 194 148 155 183C116 218 65 288 30 365Z" fill="#3d7032" opacity="0.6"/>
-    <path d="M10 370 Q80 250 190 118" stroke="#6ba05a" stroke-width="1.5" opacity="0.4" fill="none"/>
   </svg>
 
   <div class="container">
